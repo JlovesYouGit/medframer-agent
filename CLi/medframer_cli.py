@@ -19,8 +19,12 @@ if str(ASI_CORE_PARENT) not in sys.path:
     sys.path.insert(0, str(ASI_CORE_PARENT))
 
 from light_asi_core.config import RuntimeConfig
+from light_asi_core.continuous_data_flow import ContinuousDataFlow
 from light_asi_core.discovery_agent import DiscoveryAgent
+from light_asi_core.model_tuner import ModelTuner
 from light_asi_core.ollama_client import OllamaClient, OllamaConnectionError
+from light_asi_core.persistent_memory import PersistentMemory
+from light_asi_core.weight_adjuster import WeightAdjuster
 
 
 def _resolve_path(path_value: Optional[str], fallback: Path) -> Path:
@@ -213,6 +217,95 @@ def _cmd_index(args: argparse.Namespace, config: RuntimeConfig) -> int:
     return 0
 
 
+def _cmd_tune_model(args: argparse.Namespace, config: RuntimeConfig) -> int:
+    tuner = ModelTuner(config)
+    result = tuner.create_custom_model(
+        base_model=args.base_model,
+        custom_name=args.custom_name,
+        medframework_root=_resolve_path(args.medframework_root, config.medframework_root)
+        if args.medframework_root
+        else None,
+        max_files=args.max_files,
+    )
+    print(json.dumps(result, indent=2))
+    return 0 if result.get("success") else 1
+
+
+def _cmd_memory(args: argparse.Namespace, config: RuntimeConfig) -> int:
+    memory = PersistentMemory(config)
+    
+    if args.memory_action == "stats":
+        stats = memory.get_statistics()
+        print(json.dumps(stats, indent=2))
+    elif args.memory_action == "export":
+        export_path = memory.export_memory()
+        print(f"Memory exported to: {export_path}")
+    elif args.memory_action == "import":
+        result = memory.import_memory(Path(args.import_path))
+        print(json.dumps(result, indent=2))
+    elif args.memory_action == "context":
+        context = memory.get_relevant_context(args.query, max_results=args.max_results)
+        print(json.dumps(context, indent=2))
+    
+    return 0
+
+
+def _cmd_weights(args: argparse.Namespace, config: RuntimeConfig) -> int:
+    weight_adjuster = WeightAdjuster(config)
+    
+    if args.weights_action == "summary":
+        summary = weight_adjuster.get_weight_adjustment_summary()
+        print(json.dumps(summary, indent=2))
+    elif args.weights_action == "get":
+        weights = weight_adjuster.get_model_weights(args.model)
+        print(json.dumps(weights, indent=2))
+    elif args.weights_action == "reset":
+        result = weight_adjuster.reset_model_weights(args.model)
+        print(json.dumps(result, indent=2))
+    elif args.weights_action == "export":
+        export_path = weight_adjuster.export_weight_adjustments()
+        print(f"Weights exported to: {export_path}")
+    
+    return 0
+
+
+def _cmd_flow(args: argparse.Namespace, config: RuntimeConfig) -> int:
+    flow = ContinuousDataFlow(config)
+    
+    if args.flow_action == "start":
+        flow.start_flow()
+        print("Continuous data flow started. Press Ctrl+C to stop.")
+        try:
+            while True:
+                stats = flow.get_flow_statistics()
+                print(f"\rFlow stats - Input: {stats['input_queue_size']} | Processing: {stats['processing_queue_size']} | Output: {stats['output_queue_size']} | Match Rate: {stats['average_match_rates']}", end="")
+                import time
+                time.sleep(1)
+        except KeyboardInterrupt:
+            flow.stop_flow()
+            print("\nFlow stopped.")
+    elif args.flow_action == "stats":
+        stats = flow.get_flow_statistics()
+        print(json.dumps(stats, indent=2))
+    elif args.flow_action == "input":
+        data = {"text": args.text, "source": args.source}
+        if args.qr_code:
+            data["qr_code"] = args.qr_code
+        success = flow.input_data(data)
+        print(f"Data input: {'success' if success else 'failed'}")
+    elif args.flow_action == "output":
+        output = flow.get_output()
+        if output:
+            print(json.dumps(output, indent=2))
+        else:
+            print("No output available")
+    elif args.flow_action == "reset":
+        flow.reset_flow()
+        print("Flow reset")
+    
+    return 0
+
+
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="medframer",
@@ -279,6 +372,46 @@ def _build_parser() -> argparse.ArgumentParser:
     index.add_argument("--medframework-root", default=None)
     index.add_argument("--max-files", type=int, default=300)
 
+    # Model tuning commands
+    tune = subparsers.add_parser("tune", help="Fine-tune Ollama models using medframework data.")
+    tune.add_argument("--base-model", required=True, help="Base model to fine-tune (e.g., llama3.2)")
+    tune.add_argument("--custom-name", required=True, help="Name for the custom model")
+    tune.add_argument("--medframework-root", default=None)
+    tune.add_argument("--max-files", type=int, default=100)
+
+    # Memory commands
+    memory = subparsers.add_parser("memory", help="Persistent memory management.")
+    memory_sub = memory.add_subparsers(dest="memory_action", required=True)
+    memory_sub.add_parser("stats", help="Show memory statistics")
+    memory_sub.add_parser("export", help="Export memory to file")
+    memory_import = memory_sub.add_parser("import", help="Import memory from file")
+    memory_import.add_argument("--import-path", required=True, help="Path to memory file")
+    memory_context = memory_sub.add_parser("context", help="Get relevant context for a query")
+    memory_context.add_argument("--query", required=True, help="Query to search for")
+    memory_context.add_argument("--max-results", type=int, default=5)
+
+    # Weight commands
+    weights = subparsers.add_parser("weights", help="Model weight adjustment management.")
+    weights_sub = weights.add_subparsers(dest="weights_action", required=True)
+    weights_sub.add_parser("summary", help="Show weight adjustment summary")
+    weights_get = weights_sub.add_parser("get", help="Get weights for a specific model")
+    weights_get.add_argument("--model", required=True, help="Model name")
+    weights_reset = weights_sub.add_parser("reset", help="Reset weights for a model")
+    weights_reset.add_argument("--model", required=True, help="Model name")
+    weights_sub.add_parser("export", help="Export weight adjustments")
+
+    # Continuous flow commands
+    flow = subparsers.add_parser("flow", help="Continuous data flow with QR pattern extraction.")
+    flow_sub = flow.add_subparsers(dest="flow_action", required=True)
+    flow_sub.add_parser("start", help="Start continuous data flow")
+    flow_sub.add_parser("stats", help="Show flow statistics")
+    flow_sub.add_parser("reset", help="Reset flow state")
+    flow_input = flow_sub.add_parser("input", help="Input data into the flow")
+    flow_input.add_argument("--text", required=True, help="Text data to process")
+    flow_input.add_argument("--source", default="manual", help="Data source identifier")
+    flow_input.add_argument("--qr-code", default=None, help="QR code data if present")
+    flow_sub.add_parser("output", help="Get processed output from flow")
+
     return parser
 
 
@@ -299,6 +432,14 @@ def main(argv: Optional[list[str]] = None) -> int:
         return _cmd_discover(args, config)
     if args.command == "index":
         return _cmd_index(args, config)
+    if args.command == "tune":
+        return _cmd_tune_model(args, config)
+    if args.command == "memory":
+        return _cmd_memory(args, config)
+    if args.command == "weights":
+        return _cmd_weights(args, config)
+    if args.command == "flow":
+        return _cmd_flow(args, config)
 
     parser.print_help()
     return 0
