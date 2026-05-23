@@ -1,0 +1,32 @@
+{
+  "configuration_name": "Simplified Molecular Enhancement System",
+  "description": "Unified execution of working molecular enhancement systems",
+  "executors": [
+    {
+      "executor_id": "modifier_0_5mg_test",
+      "executor_type": "modifier_system",
+      "module_path": "medication_modifier_system",
+      "class_name": "MedicationModifierSystem",
+      "method_name": "add_0_5mg_modifier",
+      "parameters": {
+        "modifier_id": "unified_test_modifier",
+        "sterplistic_strength": 0.7,
+        "stelavis_rate": 0.1
+      },
+      "timeout_seconds": 60,
+      "priority": 5,
+      "dependencies": []
+    },
+    {
+      "executor_id": "test_modifier_system",
+      "executor_type": "modifier_system",
+      "module_path": "test_0_5mg_modifier",
+      "class_name": "test_0_5mg_modifier",
+      "method_name": "__call__",
+      "parameters": {},
+      "timeout_seconds": 60,
+      "priority": 4,
+      "dependencies": []
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "motor_coordination": {
+    "cortical_lag_adjustment": {
+      "baseline_lag_ms": 50,
+      "max_adjustment_ms": 100,
+      "sensitivity": 0.7,
+      "recovery_rate": 0.2
+    },
+    "speech_articulation": {
+      "lip_sync_gain": 1.2,
+      "tongue_position_correction": 0.8,
+      "jaw_movement_scaling": 1.0,
+      "vocal_cord_timing_offset_ms": -10
+    },
+    "motor_learning": {
+      "error_correction_rate": 0.05,
+      "retention_factor": 0.9,
+      "decay_time_minutes": 120,
+      "max_adaptation_per_session": 0.3
+    },
+    "safety_limits": {
+      "max_cortical_stimulation": 0.8,
+      "min_articulation_interval_ms": 200,
+      "allow_negative_lag": false,
+      "emergency_cutoff_threshold": 0.95
+    }
+  }
+}

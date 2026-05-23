@@ -1,0 +1,87 @@
+{
+  "session_info": {
+    "session_id": "medical_monitor_1770305919",
+    "timestamp": 1770305921.715361,
+    "monitoring_active": true
+  },
+  "baseline_metrics": {
+    "saliva_ph": 7.4,
+    "hydrogen_ions": 0.5,
+    "oxygen_saturation": 0.6,
+    "body_conductance": 0.5,
+    "body_impedance": 1.7394344433907916,
+    "usb_data_quality": 0.9227947800944027,
+    "usb_data_rate": 653.7463597551334
+  },
+  "organ_status": {
+    "heart": {
+      "function_score": 0.8145054021753876,
+      "efficiency": 0.7737801320666182,
+      "stress_level": 0.09274729891230621,
+      "trend_direction": "stable",
+      "abnormal_indicators": []
+    },
+    "lungs": {
+      "function_score": 0.6,
+      "efficiency": 0.51,
+      "stress_level": 0.4,
+      "trend_direction": "declining",
+      "abnormal_indicators": []
+    },
+    "liver": {
+      "function_score": 0.7940486891848713,
+      "efficiency": 0.7146438202663842,
+      "stress_level": 0.20595131081512874,
+      "trend_direction": "stable",
+      "abnormal_indicators": []
+    },
+    "kidneys": {
+      "function_score": 0.7940486891848713,
+      "efficiency": 0.7146438202663842,
+      "stress_level": 0.20595131081512874,
+      "trend_direction": "stable",
+      "abnormal_indicators": []
+    },
+    "brain": {
+      "function_score": 124.73085253094004,
+      "efficiency": 112.25776727784604,
+      "stress_level": -123.73085253094004,
+      "trend_direction": "improving",
+      "abnormal_indicators": []
+    },
+    "digestive": {
+      "function_score": 0.7942768085885072,
+      "efficiency": 0.7148491277296566,
+      "stress_level": 0.20572319141149276,
+      "trend_direction": "stable",
+      "abnormal_indicators": []
+    }
+  },
+  "dna_trace_data": {
+    "markers": {
+      "stress_genes": 0.14449757476145472,
+      "immune_response": 0.890146280279374,
+      "metabolic_genes": 0.8972185712822243,
+      "cell_repair": 0.5268271324113863,
+      "neurotransmitter_genes": 0.7917586306674624
+    },
+    "health_score": 0.7713973279909948,
+    "stress_level": 0.14449757476145472,
+    "repair_capacity": 0.5268271324113863
+  },
+  "brain_activity_data": {
+    "waves": {
+      "delta": 0.31532474562438073,
+      "theta": 0.25282485949148215,
+      "alpha": 0.52910387927003,
+      "beta": 0.6801691329548982,
+      "gamma": 0.31895206794898295
+    },
+    "overall_activity": 0.4192749370579548,
+    "cognitive_load": 0.9991212009038812,
+    "relaxation_level": 0.7819287387615121,
+    "deep_sleep": 0.31532474562438073
+  },
+  "bio_cycles": {},
+  "medical_history": []
+}

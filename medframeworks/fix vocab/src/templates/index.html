@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Rehabilitation Dashboard</title>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .dashboard { max-width: 1200px; margin: 0 auto; }
+        .header { background: #2c3e50; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .status-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 20px; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .metric { font-size: 2em; font-weight: bold; color: #2c3e50; }
+        .progress-bar { background: #ecf0f1; height: 20px; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { background: #3498db; height: 100%; transition: width 0.3s ease; }
+        .chart-container { height: 300px; margin-top: 20px; }
+        .controls { display: flex; gap: 10px; margin-bottom: 20px; }
+        button { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn-start { background: #27ae60; color: white; }
+        .btn-stop { background: #e74c3c; color: white; }
+        .btn-emergency { background: #c0392b; color: white; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Neuro-Rehabilitation Monitoring System</h1>
+            <p>Real-time biological repair progress monitoring</p>
+        </div>
+
+        <div class="controls">
+            <button class="btn-start" onclick="startSystem()">Start System</button>
+            <button class="btn-stop" onclick="stopSystem()">Stop System</button>
+            <button class="btn-emergency" onclick="emergencyStop()">EMERGENCY STOP</button>
+        </div>
+
+        <div class="status-grid">
+            <div class="card">
+                <h3>Overall Progress</h3>
+                <div class="metric" id="overall-progress">0%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>BBB Integrity</h3>
+                <div class="metric" id="bbb-integrity">0%</div>
+                <div>Blood-Brain Barrier Restoration</div>
+            </div>
+
+            <div class="card">
+                <h3>Neuroinflammation</h3>
+                <div class="metric" id="inflammation-level">100%</div>
+                <div>Inflammation Resolution</div>
+            </div>
+
+            <div class="card">
+                <h3>Treatment Phase</h3>
+                <div class="metric" id="treatment-phase">Offline</div>
+                <div>Current Protocol</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Real-time Progress</h3>
+            <div class="chart-container">
+                <canvas id="progress-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const socket = io();
+        let progressChart = null;
+
+        socket.on('connect', () => {
+            console.log('Connected to server');
+            socket.emit('start_updates');
+        });
+
+        socket.on('real_time_update', (data) => {
+            updateDashboard(data);
+        });
+
+        function updateDashboard(data) {
+            // Update overall progress
+            const progress = data.repair_progress || 0;
+            document.getElementById('overall-progress').textContent = progress.toFixed(1) + '%';
+            document.getElementById('progress-bar').style.width = progress + '%';
+
+            // Update BBB integrity
+            const bbbIntegrity = data.bio_status?.blood_brain_barrier?.integrity_percent || 0;
+            document.getElementById('bbb-integrity').textContent = bbbIntegrity.toFixed(1) + '%';
+
+            // Update inflammation
+            const inflammation = data.bio_status?.neuroinflammation?.level_percent || 100;
+            document.getElementById('inflammation-level').textContent = inflammation.toFixed(1) + '%';
+
+            // Update treatment phase
+            document.getElementById('treatment-phase').textContent = data.treatment_phase || 'Offline';
+
+            // Update chart
+            updateChart(progress);
+        }
+
+        function updateChart(progress) {
+            // Chart update logic would go here
+        }
+
+        async function startSystem() {
+            const response = await fetch('/api/start', { method: 'POST' });
+            const result = await response.json();
+            console.log('System started:', result);
+        }
+
+        async function stopSystem() {
+            const response = await fetch('/api/stop', { method: 'POST' });
+            const result = await response.json();
+            console.log('System stopped:', result);
+        }
+
+        async function emergencyStop() {
+            if (confirm('Are you sure you want to emergency stop?')) {
+                const response = await fetch('/api/emergency-stop', { method: 'POST' });
+                const result = await response.json();
+                console.log('Emergency stop activated:', result);
+            }
+        }
+
+        // Initialize chart
+        const ctx = document.getElementById('progress-chart').getContext('2d');
+        progressChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Repair Progress',
+                    data: [],
+                    borderColor: '#3498db',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

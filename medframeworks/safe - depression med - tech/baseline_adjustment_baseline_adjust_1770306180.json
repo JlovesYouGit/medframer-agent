@@ -1,0 +1,83 @@
+{
+  "session_info": {
+    "session_id": "baseline_adjust_1770306180",
+    "timestamp": 1770306180.6773715
+  },
+  "original_baselines": {
+    "oxygen_efficiency": 0.75,
+    "oxygen_saturation": 0.95,
+    "ph_level": 7.4,
+    "lung_capacity": 4.5,
+    "tidal_volume": 0.5,
+    "breathing_rate": 16,
+    "lung_strain_index": 0.15,
+    "metabolic_rate": 1.0,
+    "cellular_oxygen_demand": 0.8
+  },
+  "adjusted_baselines": {
+    "oxygen_efficiency": 0.6,
+    "oxygen_saturation": 0.95,
+    "ph_level": 7.4,
+    "lung_capacity": 4.5,
+    "tidal_volume": 0.5,
+    "breathing_rate": 15.0,
+    "lung_strain_index": 0.0375,
+    "metabolic_rate": 1.0,
+    "alveolar_ventilation": 5.25
+  },
+  "oxygen_profile": {
+    "current_efficiency": 0.6,
+    "target_efficiency": 0.85,
+    "lung_strain_factor": 0.0375,
+    "oxygen_saturation": 0.95
+  },
+  "ph_profile": {
+    "current_ph": 7.4,
+    "target_ph": 7.42,
+    "buffer_capacity": 0.8
+  },
+  "volumetric_tuning": {
+    "lung_volume_optimal": 4.5,
+    "tidal_volume": 0.5,
+    "breathing_rate": 15.0,
+    "alveolar_ventilation": 5.25
+  },
+  "safety_constraints": {
+    "oxygen_efficiency": {
+      "min_safe": 0.6,
+      "max_safe": 0.9,
+      "optimal_range": [
+        0.75,
+        0.85
+      ],
+      "max_change_rate": 0.05
+    },
+    "ph_level": {
+      "min_safe": 7.35,
+      "max_safe": 7.45,
+      "optimal_range": [
+        7.38,
+        7.42
+      ],
+      "max_change_rate": 0.02
+    },
+    "lung_strain": {
+      "min_safe": 0.0,
+      "max_safe": 0.3,
+      "optimal_range": [
+        0.05,
+        0.15
+      ],
+      "max_change_rate": 0.03
+    },
+    "breathing_rate": {
+      "min_safe": 12,
+      "max_safe": 20,
+      "optimal_range": [
+        14,
+        16
+      ],
+      "max_change_rate": 1.0
+    }
+  }
+}

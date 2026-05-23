@@ -1,0 +1,129 @@
+{
+  "session_id": "electrode_session_1770304906",
+  "electrode_configs": {
+    "cervical": {
+      "position": [
+        0.0,
+        0.8,
+        0.0
+      ],
+      "target_tissue": "muscle_nerve",
+      "frequency_range": [
+        1000,
+        5000
+      ],
+      "voltage_range": [
+        0.1,
+        5.0
+      ],
+      "sensitivity": 0.85,
+      "response_time": 0.1
+    },
+    "upper_back": {
+      "position": [
+        0.0,
+        0.6,
+        0.2
+      ],
+      "target_tissue": "muscle_fascia",
+      "frequency_range": [
+        800,
+        4000
+      ],
+      "voltage_range": [
+        0.1,
+        4.0
+      ],
+      "sensitivity": 0.8,
+      "response_time": 0.15
+    },
+    "cardiac": {
+      "position": [
+        0.0,
+        0.4,
+        0.0
+      ],
+      "target_tissue": "cardiac_muscle",
+      "frequency_range": [
+        500,
+        2000
+      ],
+      "voltage_range": [
+        0.05,
+        2.0
+      ],
+      "sensitivity": 0.9,
+      "response_time": 0.05
+    },
+    "brain": {
+      "position": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "target_tissue": "neural_tissue",
+      "frequency_range": [
+        2000,
+        8000
+      ],
+      "voltage_range": [
+        0.01,
+        1.0
+      ],
+      "sensitivity": 0.95,
+      "response_time": 0.02
+    },
+    "peripheral": {
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "target_tissue": "peripheral_nerves",
+      "frequency_range": [
+        1500,
+        6000
+      ],
+      "voltage_range": [
+        0.1,
+        3.0
+      ],
+      "sensitivity": 0.75,
+      "response_time": 0.2
+    }
+  },
+  "monitoring_history": [
+    {
+      "timestamp": 1770304906.4765265,
+      "body_state": {
+        "overall_conductivity": 0.5631359597289277,
+        "body_impedance": 1.7757701008498232,
+        "resonance_frequency": 3246.4985666305192,
+        "electrode_coupling": 0.1071275097393342,
+        "signal_quality": 0.854400848061486,
+        "interface_stability": 0.908885485153157,
+        "hydrogen_oxygen_balance": 563.1359597289277,
+        "metabolic_rate": 3.2464985666305193,
+        "cellular_health": 0.1071275097393342,
+        "tissue_integrity": 0.854400848061486,
+        "overall_stability": 0.908885485153157,
+        "body_state_score": 113.65057442770244,
+        "classification": "optimal"
+      },
+      "interface_data": {
+        "conductance": 0.5631359597289277,
+        "impedance": 1.7757701008498232,
+        "resonance_frequency": 3246.4985666305192,
+        "coupling_coefficient": 0.1071275097393342,
+        "signal_quality": 0.854400848061486,
+        "stability": 0.908885485153157
+      },
+      "report_summary": {
+        "timestamp": 1770304906.4765265,
+        "body_state_score": 113.65057442770244,
+        "classification": "optimal",
+        "interface_quality": 0.854400848061486
+      }
+    }
+  ]
+}

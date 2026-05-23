@@ -1,0 +1,91 @@
+{
+  "execution_summary": {
+    "total_executors": 5,
+    "executed": 5,
+    "completed": 4,
+    "failed": 1,
+    "total_time": 0.0,
+    "results": {
+      "molecular_transmutation": {
+        "status": "completed",
+        "execution_time": 0.0,
+        "error": ""
+      },
+      "side_effect_neutralization": {
+        "status": "failed",
+        "execution_time": 0.0,
+        "error": "'SideEffectNeutralizationSystem' object has no attribute 'execute_complete_side_effect_neutralization'"
+      },
+      "modifier_0_5mg": {
+        "status": "completed",
+        "execution_time": 0.0,
+        "error": ""
+      },
+      "complete_neutralization": {
+        "status": "completed",
+        "execution_time": 0.0,
+        "error": ""
+      },
+      "unified_system_demo": {
+        "status": "completed",
+        "execution_time": 0.0,
+        "error": ""
+      }
+    }
+  },
+  "detailed_results": {
+    "molecular_transmutation": {
+      "executor_id": "molecular_transmutation",
+      "status": "ExecutionStatus.COMPLETED",
+      "start_time": 1770253656.103085,
+      "end_time": 1770253656.2184403,
+      "output": false,
+      "error_message": "",
+      "execution_time": 0.0
+    },
+    "side_effect_neutralization": {
+      "executor_id": "side_effect_neutralization",
+      "status": "ExecutionStatus.FAILED",
+      "start_time": 1770253656.2184403,
+      "end_time": 1770253656.221439,
+      "output": null,
+      "error_message": "'SideEffectNeutralizationSystem' object has no attribute 'execute_complete_side_effect_neutralization'",
+      "execution_time": 0.0
+    },
+    "modifier_0_5mg": {
+      "executor_id": "modifier_0_5mg",
+      "status": "ExecutionStatus.COMPLETED",
+      "start_time": 1770253656.221439,
+      "end_time": 1770253656.221439,
+      "output": true,
+      "error_message": "",
+      "execution_time": 0.0
+    },
+    "complete_neutralization": {
+      "executor_id": "complete_neutralization",
+      "status": "ExecutionStatus.COMPLETED",
+      "start_time": 1770253656.221439,
+      "end_time": 1770253656.2634912,
+      "output": false,
+      "error_message": "",
+      "execution_time": 0.0
+    },
+    "unified_system_demo": {
+      "executor_id": "unified_system_demo",
+      "status": "ExecutionStatus.COMPLETED",
+      "start_time": 1770253656.2634912,
+      "end_time": 1770253656.3894954,
+      "output": true,
+      "error_message": "",
+      "execution_time": 0.0
+    }
+  },
+  "execution_order": [
+    "molecular_transmutation",
+    "side_effect_neutralization",
+    "modifier_0_5mg",
+    "complete_neutralization",
+    "unified_system_demo"
+  ],
+  "timestamp": 1770253656.3894954
+}

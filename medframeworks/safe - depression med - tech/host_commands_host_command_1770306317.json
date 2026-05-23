@@ -1,0 +1,26 @@
+{
+  "session_info": {
+    "session_id": "host_command_1770306317",
+    "timestamp": 1770306319.165758
+  },
+  "safety_thresholds": {
+    "max_lung_strain": 0.2,
+    "min_oxygen_saturation": 0.85,
+    "ph_range": [
+      7.35,
+      7.45
+    ],
+    "max_breathing_rate_change": 3.0,
+    "max_oxygen_efficiency_change": 0.2
+  },
+  "command_queue": [],
+  "execution_history": [
+    {
+      "command_id": "baseline_adj_1770306318",
+      "command_type": "apply_baseline_adjustment",
+      "priority": 8,
+      "status": "completed",
+      "execution_time": 1770306318.6622539,
+      "result": {
+        "success": true,
+        "response": 

@@ -1,0 +1,13 @@
+{
+  "session_info": {
+    "session_id": "live_feed_1770305381",
+    "timestamp": 1770305387.134033,
+    "usb_port": 1
+  },
+  "device_info": {
+    "device_id": "USB_ELECTRODE_1",
+    "firmware_version": "2.1.3",
+    "serial_number": "USB00015382",
+    "manufacturer": "BioElectrode Systems",
+    "supported_data_types": [
+      

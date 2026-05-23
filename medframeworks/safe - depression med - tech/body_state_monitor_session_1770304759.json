@@ -1,0 +1,113 @@
+{
+  "session_id": "session_1770304759",
+  "baseline_metrics": {
+    "hydrogen_oxygen_balance": 0.891637788459197,
+    "metabolic_efficiency": 0.5431609150184764,
+    "stress_level": 0.06408239468421606,
+    "measurement_quality": 1.0,
+    "data_completeness": 0.4
+  },
+  "monitoring_history": [
+    {
+      "timestamp": 1770304759.040605,
+      "measurement_id": "trace_1770304759_saliva",
+      "data_source": "simple_monitor_saliva",
+      "raw_values": {
+        "ph_level": 7.409039603233337,
+        "hydrogen_ions": 0.5680792064666749,
+        "oxygen_saturation": 0.6371188097000122,
+        "electrolyte_balance": 0.7890396032333374,
+        "enzyme_activity": 0.6980792064666749,
+        "cortisol_level": 0.4390396032333374,
+        "hydration_status": 0.8540396032333374,
+        "metabolic_rate": 0.7780792064666747
+      },
+      "processed_values": {
+        "hydrogen_oxygen_balance": 0.891637788459197,
+        "metabolic_efficiency": 0.5431609150184764,
+        "stress_level": 0.06408239468421606,
+        "measurement_quality": 1.0,
+        "data_completeness": 0.4
+      },
+      "fluctuation_detected": false,
+      "alert_level": "normal"
+    },
+    {
+      "timestamp": 1770304759.5422516,
+      "measurement_id": "trace_1770304759_volumetric",
+      "data_source": "simple_monitor_volumetric",
+      "raw_values": {
+        "body_water_volume": 43.95417325496673,
+        "blood_plasma_volume": 3.477086627483368,
+        "cellular_fluid_volume": 28.36333860397339,
+        "interstitial_volume": 11.452503952980042,
+        "total_body_water_percent": 61.508346509933475,
+        "fluid_distribution_ratio": 0.7354173254966736
+      },
+      "processed_values": {
+        "fluid_distribution_efficiency": 0.7539050614342989,
+        "cellular_hydration_ratio": 0.6452934159276534,
+        "measurement_quality": 1.0,
+        "data_completeness": 0.3
+      },
+      "fluctuation_detected": true,
+      "alert_level": "high"
+    },
+    {
+      "timestamp": 1770304760.043371,
+      "measurement_id": "trace_1770304760_deconstruct",
+      "data_source": "simple_monitor_deconstruct",
+      "raw_values": {
+        "molecular_breakdown_rate": 0.6801301128864289,
+        "cellular_turnover_rate": 0.6200867419242858,
+        "metabolic_efficiency": 0.7200433709621429,
+        "detoxification_rate": 0.680086741924286,
+        "protein_synthesis_rate": 0.7500433709621429,
+        "energy_production_rate": 0.7021301128864288
+      },
+      "processed_values": {
+        "metabolic_health_score": 0.7110867419242859,
+        "cellular_renewal_rate": 0.4650919502018237,
+        "measurement_quality": 1.0,
+        "data_completeness": 0.3
+      },
+      "fluctuation_detected": true,
+      "alert_level": "high"
+    },
+    {
+      "timestamp": 1770304760.5458817,
+      "measurement_id": "trace_1770304760_interface",
+      "data_source": "simple_monitor_interface",
+      "raw_values": {
+        "ph_level": 7.410544873714446,
+        "hydrogen_ions": 0.5710897474288941,
+        "oxygen_saturation": 0.641634621143341,
+        "electrolyte_balance": 0.750544873714447,
+        "enzyme_activity": 0.7010897474288941,
+        "cortisol_level": 0.440544873714447,
+        "hydration_status": 0.820544873714447,
+        "metabolic_rate": 0.781089747428894,
+        "body_water_volume": 42.0544873714447,
+        "blood_plasma_volume": 3.0272436857223513,
+        "cellular_fluid_volume": 28.44358989715576,
+        "interstitial_volume": 11.512692422866822,
+        "total_body_water_percent": 60.1089747428894,
+        "fluid_distribution_ratio": 0.7454487371444702,
+        "molecular_breakdown_rate": 0.6816346211433411,
+        "cellular_turnover_rate": 0.621089747428894,
+        "metabolic_efficiency": 0.720544873714447,
+        "detoxification_rate": 0.681089747428894,
+        "protein_synthesis_rate": 0.750544873714447,
+        "energy_production_rate": 0.703634621143341
+      },
+      "processed_values": {
+        "overall_body_score": 8.108402935004236,
+        "fluctuation_index": 1.9653687016128103,
+        "measurement_quality": 1.0,
+        "data_completeness": 1.0
+      },
+      "fluctuation_detected": true,
+      "alert_level": "high"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "active_modifiers": {
+    "test_0_5mg_v1": "{\n  \"modifier_id\": \"test_0_5mg_v1\",\n  \"modifier_type\": \"ModifierType.STERPLISTIC_VIACRON\",\n  \"dosage_mg\": 0.5,\n  \"sterplistic_concentration\": 0.7,\n  \"stelavis_production_rate\": 0.1,\n  \"target_electrolytes\": [\n    \"ElectrolyteType.SODIUM\",\n    \"ElectrolyteType.POTASSIUM\",\n    \"ElectrolyteType.MAGNESIUM\"\n  ],\n  \"visual_stabilization_enabled\": true,\n  \"lag_reduction_enabled\": true\n}"
+  },
+  "electrolyte_levels": {
+    "sodium": {
+      "electrolyte_type": "ElectrolyteType.SODIUM",
+      "current_level": 134.92333333333335,
+      "optimal_level": 140.0,
+      "production_rate": 0.03333333333333333,
+      "consumption_rate": 0.8
+    },
+    "potassium": {
+      "electrolyte_type": "ElectrolyteType.POTASSIUM",
+      "current_level": 3.743333333333333,
+      "optimal_level": 4.2,
+      "production_rate": 0.03333333333333333,
+      "consumption_rate": 0.6
+    },
+    "magnesium": {
+      "electrolyte_type": "ElectrolyteType.MAGNESIUM",
+      "current_level": 0.7200000000000001,
+      "optimal_level": 0.9,
+      "production_rate": 0.03333333333333333,
+      "consumption_rate": 0.4
+    },
+    "calcium": {
+      "electrolyte_type": "ElectrolyteType.CALCIUM",
+      "current_level": 8.5,
+      "optimal_level": 9.5,
+      "production_rate": 0.0,
+      "consumption_rate": 0.5
+    },
+    "chloride": {
+      "electrolyte_type": "ElectrolyteType.CHLORIDE",
+      "current_level": 98.0,
+      "optimal_level": 103.0,
+      "production_rate": 0.0,
+      "consumption_rate": 0.7
+    }
+  },
+  "visual_metrics": {
+    "dissociation_level": 0.216,
+    "response_lag_ms": 118.5,
+    "visual_clarity": 0.7839999999999999,
+    "tracking_stability": 0.6699999999999999
+  },
+  "modification_history": [
+    {
+      "timestamp": 1770223167.5702457,
+      "action": "add_modifier",
+      "modifier_id": "test_0_5mg_v1",
+      "config": "{\n  \"modifier_id\": \"test_0_5mg_v1\",\n  \"modifier_type\": \"ModifierType.STERPLISTIC_VIACRON\",\n  \"dosage_mg\": 0.5,\n  \"sterplistic_concentration\": 0.7,\n  \"stelavis_production_rate\": 0.1,\n  \"target_electrolytes\": [\n    \"ElectrolyteType.SODIUM\",\n    \"ElectrolyteType.POTASSIUM\",\n    \"ElectrolyteType.MAGNESIUM\"\n  ],\n  \"visual_stabilization_enabled\": true,\n  \"lag_reduction_enabled\": true\n}"
+    }
+  ]
+}

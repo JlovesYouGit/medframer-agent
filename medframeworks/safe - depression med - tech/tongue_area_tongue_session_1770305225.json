@@ -1,0 +1,295 @@
+{
+  "session_info": {
+    "session_id": "tongue_session_1770305225",
+    "timestamp": 1770305226.1284063
+  },
+  "molecular_database": {
+    "saliva_enzymes": {
+      "amylase": {
+        "optimal_concentration": 100.0,
+        "reaction_constant": 0.05,
+        "temperature_optimum": 37.0,
+        "ph_optimum": 6.8,
+        "molecular_weight": 55000
+      },
+      "lipase": {
+        "optimal_concentration": 50.0,
+        "reaction_constant": 0.03,
+        "temperature_optimum": 37.0,
+        "ph_optimum": 7.0,
+        "molecular_weight": 48000
+      },
+      "protease": {
+        "optimal_concentration": 75.0,
+        "reaction_constant": 0.04,
+        "temperature_optimum": 37.0,
+        "ph_optimum": 7.5,
+        "molecular_weight": 35000
+      }
+    },
+    "taste_receptors": {
+      "sweet_receptors": {
+        "optimal_concentration": 1.0,
+        "reaction_constant": 0.8,
+        "binding_affinity": 0.9,
+        "activation_threshold": 0.1
+      },
+      "sour_receptors": {
+        "optimal_concentration": 0.5,
+        "reaction_constant": 0.7,
+        "binding_affinity": 0.85,
+        "activation_threshold": 0.05
+      },
+      "bitter_receptors": {
+        "optimal_concentration": 0.2,
+        "reaction_constant": 0.6,
+        "binding_affinity": 0.8,
+        "activation_threshold": 0.02
+      },
+      "umami_receptors": {
+        "optimal_concentration": 0.8,
+        "reaction_constant": 0.75,
+        "binding_affinity": 0.88,
+        "activation_threshold": 0.08
+      }
+    },
+    "hydration_molecules": {
+      "water_clusters": {
+        "optimal_concentration": 55000.0,
+        "reaction_constant": 0.01,
+        "binding_energy": -20.5
+      },
+      "glycerol": {
+        "optimal_concentration": 100.0,
+        "reaction_constant": 0.02,
+        "binding_energy": -15.2
+      }
+    },
+    "ph_buffers": {
+      "bicarbonate": {
+        "optimal_concentration": 24.0,
+        "pKa": 6.1,
+        "buffer_capacity": 0.8
+      },
+      "phosphate": {
+        "optimal_concentration": 1.0,
+        "pKa": 7.2,
+        "buffer_capacity": 0.6
+      }
+    },
+    "electrolytes": {
+      "sodium": {
+        "optimal_concentration": 140.0,
+        "charge": 1,
+        "hydration_number": 6
+      },
+      "potassium": {
+        "optimal_concentration": 4.5,
+        "charge": 1,
+        "hydration_number": 4
+      },
+      "chloride": {
+        "optimal_concentration": 100.0,
+        "charge": -1,
+        "hydration_number": 6
+      }
+    },
+    "metabolic_markers": {
+      "glucose": {
+        "optimal_concentration": 5.0,
+        "metabolic_rate": 0.1,
+        "energy_yield": 2870
+      },
+      "lactate": {
+        "optimal_concentration": 2.0,
+        "metabolic_rate": 0.05,
+        "energy_yield": 1360
+      }
+    },
+    "reactive_oxygen": {
+      "superoxide": {
+        "optimal_concentration": 0.001,
+        "reaction_constant": 0.9,
+        "half_life": 1.0
+      },
+      "hydrogen_peroxide": {
+        "optimal_concentration": 0.01,
+        "reaction_constant": 0.7,
+        "half_life": 10.0
+      }
+    },
+    "neurotransmitters": {
+      "atp": {
+        "optimal_concentration": 5.0,
+        "release_rate": 0.1,
+        "receptor_affinity": 0.95
+      },
+      "acetylcholine": {
+        "optimal_concentration": 0.1,
+        "release_rate": 0.05,
+        "receptor_affinity": 0.85
+      }
+    }
+  },
+  "tongue_anatomy": {
+    "tip": {
+      "volume_mm3": 2500.0,
+      "surface_area_mm2": 800.0,
+      "thickness_mm": 3.0,
+      "taste_bud_density": 200,
+      "blood_flow_ml_per_min": 15.0,
+      "nerve_density": 50,
+      "predominant_receptors": [
+        "sweet",
+        "umami"
+      ]
+    },
+    "lateral_left": {
+      "volume_mm3": 1800.0,
+      "surface_area_mm2": 600.0,
+      "thickness_mm": 3.0,
+      "taste_bud_density": 150,
+      "blood_flow_ml_per_min": 12.0,
+      "nerve_density": 40,
+      "predominant_receptors": [
+        "sour",
+        "salty"
+      ]
+    },
+    "lateral_right": {
+      "volume_mm3": 1800.0,
+      "surface_area_mm2": 600.0,
+      "thickness_mm": 3.0,
+      "taste_bud_density": 150,
+      "blood_flow_ml_per_min": 12.0,
+      "nerve_density": 40,
+      "predominant_receptors": [
+        "sour",
+        "salty"
+      ]
+    },
+    "dorsal": {
+      "volume_mm3": 3000.0,
+      "surface_area_mm2": 1000.0,
+      "thickness_mm": 3.0,
+      "taste_bud_density": 180,
+      "blood_flow_ml_per_min": 18.0,
+      "nerve_density": 45,
+      "predominant_receptors": [
+        "bitter",
+        "umami"
+      ]
+    },
+    "ventral": {
+      "volume_mm3": 2200.0,
+      "surface_area_mm2": 700.0,
+      "thickness_mm": 3.0,
+      "taste_bud_density": 120,
+      "blood_flow_ml_per_min": 10.0,
+      "nerve_density": 35,
+      "predominant_receptors": [
+        "sweet",
+        "salty"
+      ]
+    },
+    "posterior": {
+      "volume_mm3": 2000.0,
+      "surface_area_mm2": 650.0,
+      "thickness_mm": 3.0,
+      "taste_bud_density": 160,
+      "blood_flow_ml_per_min": 14.0,
+      "nerve_density": 42,
+      "predominant_receptors": [
+        "bitter",
+        "sour"
+      ]
+    }
+  },
+  "reactant_packs": {
+    "tip": {
+      "pack_id": "pack_tip_1770305225",
+      "target_region": "tip",
+      "active_compounds": [
+        "saliva_enzymes",
+        "taste_receptors",
+        "hydration_molecules",
+        "ph_buffers"
+      ],
+      "measurement_sensitivity": 0.85,
+      "sampling_rate": 10.0,
+      "pack_volume_ml": 0.5,
+      "reaction_chambers": 8
+    },
+    "lateral_left": {
+      "pack_id": "pack_lateral_left_1770305225",
+      "target_region": "lateral_left",
+      "active_compounds": [
+        "saliva_enzymes",
+        "taste_receptors",
+        "hydration_molecules",
+        "ph_buffers"
+      ],
+      "measurement_sensitivity": 0.85,
+      "sampling_rate": 10.0,
+      "pack_volume_ml": 0.5,
+      "reaction_chambers": 8
+    },
+    "lateral_right": {
+      "pack_id": "pack_lateral_right_1770305225",
+      "target_region": "lateral_right",
+      "active_compounds": [
+        "saliva_enzymes",
+        "taste_receptors",
+        "hydration_molecules",
+        "ph_buffers"
+      ],
+      "measurement_sensitivity": 0.85,
+      "sampling_rate": 10.0,
+      "pack_volume_ml": 0.5,
+      "reaction_chambers": 8
+    },
+    "dorsal": {
+      "pack_id": "pack_dorsal_1770305225",
+      "target_region": "dorsal",
+      "active_compounds": [
+        "saliva_enzymes",
+        "taste_receptors",
+        "hydration_molecules",
+        "ph_buffers"
+      ],
+      "measurement_sensitivity": 0.85,
+      "sampling_rate": 10.0,
+      "pack_volume_ml": 0.5,
+      "reaction_chambers": 8
+    },
+    "ventral": {
+      "pack_id": "pack_ventral_1770305225",
+      "target_region": "ventral",
+      "active_compounds": [
+        "saliva_enzymes",
+        "taste_receptors",
+        "hydration_molecules",
+        "ph_buffers"
+      ],
+      "measurement_sensitivity": 0.85,
+      "sampling_rate": 10.0,
+      "pack_volume_ml": 0.5,
+      "reaction_chambers": 8
+    },
+    "posterior": {
+      "pack_id": "pack_posterior_1770305225",
+      "target_region": "posterior",
+      "active_compounds": [
+        "saliva_enzymes",
+        "taste_receptors",
+        "hydration_molecules",
+        "ph_buffers"
+      ],
+      "measurement_sensitivity": 0.85,
+      "sampling_rate": 10.0,
+      "pack_volume_ml": 0.5,
+      "reaction_chambers": 8
+    }
+  },
+  "measurement_history": []
+}

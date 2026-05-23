@@ -1,0 +1,83 @@
+{
+  "session_info": {
+    "session_id": "usb_session_1770305067",
+    "usb_port": 1,
+    "timestamp": 1770305067.4736202
+  },
+  "usb_entry_log": {
+    "entry_id": "usb_entry_1770305067",
+    "port_number": 1,
+    "connection_status": true,
+    "data_integrity": 0.95
+  },
+  "pipeline_routes": {
+    "cervical_pipeline": {
+      "source_port": "USB1_1",
+      "destination": "cervical_electrode",
+      "data_types": [
+        "electrode_voltage",
+        "electrode_current",
+        "body_impedance",
+        "tissue_conductance"
+      ],
+      "transfer_rate": 1000.0,
+      "buffer_size": 512
+    },
+    "upper_back_pipeline": {
+      "source_port": "USB1_2",
+      "destination": "upper_back_electrode",
+      "data_types": [
+        "electrode_voltage",
+        "electrode_current",
+        "body_impedance",
+        "metabolic_rate"
+      ],
+      "transfer_rate": 1000.0,
+      "buffer_size": 512
+    },
+    "cardiac_pipeline": {
+      "source_port": "USB1_3",
+      "destination": "cardiac_electrode",
+      "data_types": [
+        "electrode_voltage",
+        "electrode_current",
+        "body_impedance",
+        "resonance_frequency"
+      ],
+      "transfer_rate": 2000.0,
+      "buffer_size": 256
+    },
+    "brain_pipeline": {
+      "source_port": "USB1_4",
+      "destination": "brain_electrode",
+      "data_types": [
+        "electrode_voltage",
+        "electrode_current",
+        "resonance_frequency",
+        "temperature"
+      ],
+      "transfer_rate": 5000.0,
+      "buffer_size": 256
+    },
+    "peripheral_pipeline": {
+      "source_port": "USB1_5",
+      "destination": "peripheral_electrode",
+      "data_types": [
+        "electrode_voltage",
+        "electrode_current",
+        "tissue_conductance",
+        "ph_level"
+      ],
+      "transfer_rate": 1000.0,
+      "buffer_size": 512
+    }
+  },
+  "data_buffer_size": 1000,
+  "active_pipelines": [
+    "cervical_pipeline",
+    "upper_back_pipeline",
+    "cardiac_pipeline",
+    "brain_pipeline",
+    "peripheral_pipeline"
+  ]
+}

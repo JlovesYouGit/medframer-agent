@@ -1,0 +1,46 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+model_env/
+**/venv/
+**/.venv/
+
+# IDE / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local model artifacts and heavy binaries
+models_store/
+installed_models/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.keras
+
+# Runtime outputs
+node_mesh/
+*.log
+*.sqlite3
+*.db
+
+# Secrets / local env files
+.env
+.env.*
